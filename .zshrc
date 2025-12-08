@@ -108,4 +108,9 @@ alias ll="eza -all"
 
 alias szshrc="source ~/dotfiles/zshrc/.zshrc"
 
+# git aliases
+alias go="git remote set-url origin"
+
+export BAT_THEME="Nord"
+
 eval "$(starship init zsh)"

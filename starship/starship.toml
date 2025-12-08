@@ -1,5 +1,4 @@
 add_newline = false
-# A minimal left prompt
 format = """$directory$character"""
 right_format = """$all"""
 command_timeout = 1000
