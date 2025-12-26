@@ -24,11 +24,12 @@ palette = 13=#b48ead
 palette = 14=#8fbcbb
 palette = 15=#eceff4
 font-size = 16
-font-family = "Fira Mono"
+adjust-cell-height = 15%
+font-family = "FiraCode Mono"
 window-padding-x = 10
 window-padding-y = 10
 background-opacity = 0.85
 background-blur = 15
-window-height = 38
+window-height = 33
 window-width = 140
 macos-icon = chalkboard
