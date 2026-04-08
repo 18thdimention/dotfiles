@@ -109,7 +109,7 @@ alias ll="eza -all"
 alias szshrc="source ~/dotfiles/zshrc/.zshrc"
 
 # git aliases
-alias go="git remote set-url origin"
+# alias go="git remote set-url origin"  # removed: conflicts with Go compiler
 
 export BAT_THEME="Nord"
 
