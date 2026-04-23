@@ -1,0 +1,31 @@
+{
+	"layer": "top",
+	"position": "top",
+
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-center": [],
+	"modules-right": ["network", "battery", "pulseaudio", "clock"],
+
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true
+	},
+
+	"clock": {
+		"format": "{:%a %H:%M}"
+	},
+
+	"battery": {
+		"format": "{capacity}%"
+	},
+
+	"network": {
+		"format-wifi": "wifi",
+		"format-ethernet": "eth",
+		"format-disconnected": "eff"
+	},
+
+	"pulseaudio": {
+		"format": "{volume}%"
+	}
+}

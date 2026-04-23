@@ -34,5 +34,4 @@ export FZF_DEFAULT_OPTS=" \
 --color=prompt:#bb9dbd"
 
 export BAT_THEME="vague"
-eval "$(starship init zsh)"
 alias lg='lazygit'
