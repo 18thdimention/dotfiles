@@ -1,0 +1,19 @@
+* {
+		font-family: "FiraCode Nerd Font";
+		font-size: 12px;
+		color: #cdd6f4;
+}
+
+window#waybar {
+	background: #000000;
+	border-bottom: 2px solid #313244;
+}
+
+#workspaces button {
+	color: #cdd6f4;
+}
+
+#workspaces button.focused {
+	background: #313244;
+	color: #89b4fa;
+}
