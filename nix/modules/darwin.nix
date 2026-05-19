@@ -8,9 +8,15 @@
   ];
 
   # Necessary for using flakes on this system.
-  nix.settings.experimental-features = "nix-command flakes";
+  nix = {
+	  package = pkgs.nix;
+	  settings = {
+		  "extra-experimental-features" = [ "nix-command" "flakes" ];
+	  };
+  };
 
-  # Create /etc/zshrc that loads the nix-darwin environment.
+
+	# Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;  # default shell on catalina
 
   # Set Git commit hash for darwin-version.
@@ -18,6 +24,8 @@
 
   # $ darwin-rebuild changelog
   system.stateVersion = 6;
+
+system.primaryUser = "doyeon";
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -28,24 +36,28 @@
     dock = {
       autohide = true;
       orientation = "bottom";
-      tilesize = 64;
+      tilesize = 30;
       show-recents = false;
       minimize-to-application = false;
     };
+
+	trackpad = {
+		FirstClickThreshold = 0;
+	};
 
     # Finder settings
     finder = {
       AppleShowAllExtensions = true;
       ShowPathbar = true;
       ShowStatusBar = false;
-      FXPreferredViewStyle = "Nlsv"; # List view
+      FXPreferredViewStyle = "clmv"; # Column view
     };
 
     # Global domain settings
     NSGlobalDomain = {
       # Keyboard settings
-      KeyRepeat = 2;
-      InitialKeyRepeat = 15;
+      # KeyRepeat = 2;
+      # InitialKeyRepeat = 15;
       
       # Interface
       AppleInterfaceStyle = "Dark";
@@ -67,11 +79,14 @@
     loginwindow.GuestEnabled = false;
   };
 
+system.keyboard = {
+  enableKeyMapping = true;
+  remapCapsLockToControl = true;
+};
+
+
   # Fonts
   fonts.packages = with pkgs; [
-    jetbrains-mono
-    nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
   ];
-
 }
