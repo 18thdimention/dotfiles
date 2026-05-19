@@ -5,11 +5,11 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
 
 # Aliases
 alias ll="eza -all"
@@ -34,4 +34,3 @@ export FZF_DEFAULT_OPTS=" \
 --color=prompt:#bb9dbd"
 
 export BAT_THEME="vague"
-alias lg='lazygit'
