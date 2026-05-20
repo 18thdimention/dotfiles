@@ -2,19 +2,34 @@
 
 {
 	home.username = "doyeon";
-	home.homeDirectory = "/Users/doyeon";
+	home.homeDirectory = /Users/doyeon;
 	home.stateVersion = "24.05";
-	home-manager.useGlobalPkgs = true;
-	home-manager.useUserPackages = true;
 
-	program.zsh = {
+	programs.git = {
+		enable = true;
+		userName = "18thdimention";
+		userEmail = "doyeonxxxx@gmail.com";
+		extraConfig = {
+			init.defaultBranch = "main";
+			push.autoSetupRemote = true;
+			pull.rebase = false;
+		};
+		ignores = [
+			".DS_Store"
+		];
+	};
+
+	programs.zsh = {
 		enable = true;
 		enableCompletion = true;
+		shellAliases = {
+			ll = "ls -la";
+		};
 		plugins = [
 		{
-			name = "zsh-completions";
-			src = pkgs.zsh-completions;
-			file = "share/zsh/site-functions";
+			name = "zsh-autosuggestions";
+			src = pkgs.zsh-autosuggestions;
+			file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
 		}
 		{
 			name = "fzf-tab";
@@ -29,34 +44,6 @@
 		'';
 	};
 
-	home.packages = with pkgs; [
-		home-manager
-
-		git
-		gcc
-		neovim
-
-		lua
-		nodejs
-		rustc
-		cargo
-
-		tailscale
-
-		btop
-
-		bat
-		eza
-		tree
-		ripgrep
-		fzf
-		zsh-fzf-tab
-		zoxide
-
-		tmux
-
-		curl
-	];
 
 	home.file.".config/ghostty".source = ../config/ghostty;
 	home.file.".config/zsh".source = ../config/zsh;

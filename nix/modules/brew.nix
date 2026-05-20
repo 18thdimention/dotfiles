@@ -16,6 +16,7 @@
 			"raycast"
 			"zotero"
 			"tailscale"	
+			"discord"
 		];
 	};
 }

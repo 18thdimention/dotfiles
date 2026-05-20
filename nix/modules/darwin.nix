@@ -3,10 +3,34 @@
 {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [
-    # System-level packages can go here
-  ];
 
+	environment.systemPackages = with pkgs; [
+		# home-manager
+
+		git
+		gcc
+		neovim
+
+		lua
+		nodejs
+		rustc
+		cargo
+
+		btop
+
+		bat
+		eza
+		tree
+		ripgrep
+		fzf
+		zsh-fzf-tab
+		zoxide
+
+		tmux
+
+		curl
+		mas
+	];
   # Necessary for using flakes on this system.
   nix = {
 	  package = pkgs.nix;
@@ -55,18 +79,14 @@ system.primaryUser = "doyeon";
 
     # Global domain settings
     NSGlobalDomain = {
-      # Keyboard settings
-      # KeyRepeat = 2;
-      # InitialKeyRepeat = 15;
-      
       # Interface
       AppleInterfaceStyle = "Dark";
       AppleShowAllExtensions = true;
-      "_HIHideMenuBar" = true;
       
       # Text and input settings
       ApplePressAndHoldEnabled = false;
       NSAutomaticSpellingCorrectionEnabled = false;
+	"com.apple.keyboard.fnState" = true;
     };
 
     # Screenshots (simplified)

@@ -22,7 +22,7 @@
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, homebrew-cask }: 
-let
+let 
       system = "aarch64-darwin"; 
       pkgs = nixpkgs.legacyPackages.${system};
     in{
