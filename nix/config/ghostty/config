@@ -1,0 +1,20 @@
+# Window Appearance
+macos-titlebar-style = hidden
+title = " "
+macos-titlebar-proxy-icon = hidden
+background-opacity = 0.9
+background-blur-radius = 75
+theme = vague
+clipboard-read = allow
+
+# for non-rounded window
+# window-decoration = false
+# macos-window-shadow = false
+# macos-titlebar-style = native
+
+# Fonts and Text
+font-family = Cohere Mono 
+font-size = 15
+
+# Cursor and Shell Integration
+cursor-style = block

@@ -21,6 +21,7 @@
 		cargo
 
 		btop
+		starship
 
 		bat
 		eza

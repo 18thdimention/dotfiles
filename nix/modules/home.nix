@@ -8,14 +8,24 @@
   programs.git = {
     enable = true;
 
-    userName = "18thdimention";
-    userEmail = "doyeonxxxx@gmail.com";
+		signing = {
+			key = "~/.ssh/id_ed25519.pub";
+			signByDefault = true;
+		};
 
-    extraConfig = {
-      init.defaultBranch = "main";
-      push.autoSetupRemote = true;
-      pull.rebase = false;
-    };
+		settings = {
+			user.name = "18thdimention";
+			user.email = "doyeonxxxx@gmail.com";
+
+			init.defaultBranch = "main";
+			gpg.format = "ssh";
+		};
+
+		extraConfig = {
+			init.defaultBranch = "main";
+			push.autoSetupRemote = true;
+			pull.rebase = false;
+		};
 
     ignores = [
       ".DS_Store"
@@ -50,10 +60,20 @@
         source ~/.config/zsh/.zshrc
       fi
     '';
+		initExtra = ''
+			bindkey '^[[Z' autosuggest-accept
+		'';
   };
 
+	programs.starship = {
+		enable = true;
+		enableZshIntegration = true;
+	};
+
   home.file.".config/ghostty".source = ../config/ghostty;
-  home.file.".config/zsh".source = ../config/zsh;
+  home.file.".config/aerospace".source = ../config/aerospace;
+  # home.file.".config/zsh".source = ../config/zsh;
   home.file.".config/nvim".source = ../config/nvim;
   home.file.".config/btop".source = ../config/btop;
+  home.file.".config/bat".source = ../config/bat;
 }
