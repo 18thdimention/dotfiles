@@ -19,10 +19,7 @@
 
 			init.defaultBranch = "main";
 			gpg.format = "ssh";
-		};
 
-		extraConfig = {
-			init.defaultBranch = "main";
 			push.autoSetupRemote = true;
 			pull.rebase = false;
 		};
@@ -55,14 +52,13 @@
       }
     ];
 
+		autosuggestion.enable = true;
     initContent = ''
+			bindkey '^[[13;2u' autosuggest-accept
       if [[ -f ~/.config/zsh/.zshrc ]]; then
         source ~/.config/zsh/.zshrc
       fi
     '';
-		initExtra = ''
-			bindkey '^[[Z' autosuggest-accept
-		'';
   };
 
 	programs.starship = {

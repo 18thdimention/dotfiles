@@ -13,8 +13,11 @@ clipboard-read = allow
 # macos-titlebar-style = native
 
 # Fonts and Text
-font-family = Cohere Mono 
-font-size = 15
+font-family = FiraNerd Mono 
+font-size = 16
 
 # Cursor and Shell Integration
 cursor-style = block
+
+# Keybind for auto completion
+keybind = shift+enter=text:\x1b[13;2u
