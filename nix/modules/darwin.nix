@@ -9,6 +9,7 @@
 	};
 
 	environment.systemPackages = with pkgs; [
+		fastfetch
 		docker
 		home-manager
 		git
