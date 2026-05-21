@@ -23,6 +23,8 @@
 		enable = true;
 		enableCompletion = true;
 		shellAliases = {
+		shellAliases = {
+			switch = "sudo darwin-rebuild switch --flake ~/dotfiles/nix";
 			ll = "ls -la";
 		};
 		plugins = [

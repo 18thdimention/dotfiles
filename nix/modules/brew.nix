@@ -5,7 +5,10 @@
 		user = "doyeon";
 		
 		taps = [];
-		brews = [];
+		brews = [
+			"sdl2"
+			"llvm@15"
+		];
 		casks = [
 			"helium-browser"
 			"zed"
@@ -17,6 +20,14 @@
 			"zotero"
 			"tailscale"	
 			"discord"
+			"ollama"
+			"warp"
 		];
+		masApps = {
+			"Microsoft Excel" = 462058435;
+			"Microsoft Word" = 462054704;
+			"Microsoft Outlook" = 985367838;
+			"NordVPN: VPN Fast & Secure" = 905953485;
+		};
 	};
 }
