@@ -4,7 +4,13 @@
 # List packages installed in system profile. To search by name, run:
 # $ nix-env -qaP | grep wget
 
+	users.users.doyeon = {
+		home = "/Users/doyeon";
+	};
+
 	environment.systemPackages = with pkgs; [
+		docker
+		home-manager
 		git
 		gcc
 		neovim

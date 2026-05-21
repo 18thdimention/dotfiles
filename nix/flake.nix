@@ -41,10 +41,17 @@ let
 				inherit system;
 				modules = [ 
 					nix-homebrew.darwinModules.nix-homebrew
+					home-manager.darwinModules.home-manager
 					./modules/darwin.nix
 					./modules/brew.nix
+					{
+						home-manager.useGlobalPkgs = true;
+						home-manager.useUserPackages = true;
+						home-manager.backupFileExtension = "backup";
+						home-manager.users.doyeon = import ./modules/home.nix;
+					}
 				];
 			};
 		};
-	};
+    };
 }
