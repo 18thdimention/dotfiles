@@ -2,7 +2,7 @@
 macos-titlebar-style = hidden
 title = " "
 macos-titlebar-proxy-icon = hidden
-background-opacity = 0.9
+background-opacity = 0.8
 background-blur-radius = 75
 theme = vague
 clipboard-read = allow
@@ -13,11 +13,13 @@ clipboard-read = allow
 # macos-titlebar-style = native
 
 # Fonts and Text
-font-family = FiraNerd Mono 
+font-family = FiraCode Nerd Font
 font-size = 16
+
+window-padding-x =10
+window-padding-y =10
 
 # Cursor and Shell Integration
 cursor-style = block
 
-# Keybind for auto completion
 keybind = shift+enter=text:\x1b[13;2u
