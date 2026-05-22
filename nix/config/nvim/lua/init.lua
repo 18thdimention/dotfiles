@@ -1,5 +1,0 @@
-require("colorscheme.lua")
-require("telescope.lua")
-require("lsp.lua")
-require("oil.lua")
-require("statusline.lua")

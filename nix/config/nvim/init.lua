@@ -60,7 +60,7 @@ require("lazy").setup({
 
 })
 
-require("colorscheme.lua")
-require("oil.lua")
-require("statusline.lua")
-require("telescope.lua")
+require("config.colorscheme")
+require("config.oil")
+require("config.statusline")
+require("config.telescope")
