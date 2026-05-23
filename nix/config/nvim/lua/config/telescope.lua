@@ -6,11 +6,14 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 
 require('telescope').setup({
   defaults = {
+    mappings = {
+      i = {
+        ["<C-j>"] = require('telescope.actions').move_selection_next,
+        ["<C-k>"] = require('telescope.actions').move_selection_previous,
+      },
+    },
     layout_config = {
       vertical = { width = 0.5 }
-      -- other layout configuration here
     },
-    -- other defaults configuration here
   },
-  -- other configuration values here
 })
