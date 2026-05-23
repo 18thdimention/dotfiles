@@ -19,7 +19,7 @@ require("lazy").setup({
     { import = "plugins" },
 		{ import = "plugins.git" },
 		{ import = "plugins.lsp" },
-		{ import = "plugins.lua" },
+		{ import = "plugins.ai" },
   },
 	install = { colorscheme = { "kanagawa" } },
 })
