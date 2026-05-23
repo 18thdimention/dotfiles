@@ -17,7 +17,6 @@ return {
 			terminalColors = true,
 			colors = {                   -- add/modify theme and palette colors
 				palette = {
-					fujiWhite = "#CDCDCD",
 				},
 				theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
 			},
