@@ -6,7 +6,8 @@ continuation_prompt = "[▸▹ ](dimmed white)"
 format = """
 $directory
 $git_branch
-&gitstatus
+$git_status
+$git_commit
 $character
 """
 
@@ -154,3 +155,11 @@ modified = "[●◦](italic peach)"
 staged = "[▪┤[$count](bold text)│](italic teal)"
 renamed = "[◎◦](italic blue)"
 deleted = "[✕](italic red)"
+
+
+[git_commit]
+disabled = false
+only_detached = false
+format = ' [ $hash](fg:color_pink)'
+commit_hash_length = 6
+tag_disabled = false
