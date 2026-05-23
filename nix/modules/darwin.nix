@@ -15,6 +15,7 @@
 		git
 		gcc
 		neovim
+		lazygit
 
 		lua
 		nodejs
@@ -30,6 +31,7 @@
 		ripgrep
 		fzf
 		zsh-fzf-tab
+		zsh-syntax-highlighting
 		zoxide
 
 		tmux
@@ -37,7 +39,6 @@
 		curl
 		mas
 		ollama
-		opencode
 	];
 
 # Necessary for using flakes on this system.

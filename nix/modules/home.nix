@@ -44,11 +44,15 @@
         src = pkgs.zsh-autosuggestions;
         file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
       }
-
       {
         name = "fzf-tab";
         src = pkgs.zsh-fzf-tab;
         file = "share/fzf-tab/fzf-tab.plugin.zsh";
+      }
+			{
+        name = "zsh-syntax-highlighting";
+        src = pkgs.zsh-syntax-highlighting;
+        file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
       }
     ];
 
@@ -58,13 +62,11 @@
       if [[ -f ~/.config/zsh/.zshrc ]]; then
         source ~/.config/zsh/.zshrc
       fi
+      if command -v starship &> /dev/null; then
+        eval "$(starship init zsh)"
+      fi
     '';
   };
-
-	programs.starship = {
-		enable = true;
-		enableZshIntegration = true;
-	};
 
   home.file.".config/ghostty".source = ../config/ghostty;
   home.file.".config/aerospace".source = ../config/aerospace;
@@ -73,4 +75,5 @@
   home.file.".config/tmux".source = ../config/tmux;
   home.file.".config/btop".source = ../config/btop;
   home.file.".config/bat".source = ../config/bat;
+	home.file.".config/starship.toml".source = ../config/starship/starship.toml;
 }

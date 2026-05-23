@@ -8,6 +8,7 @@
 		brews = [
 			"sdl2"
 			"llvm@15"
+			"anomalyco/tap/opencode"
 		];
 		casks = [
 			"helium-browser"
