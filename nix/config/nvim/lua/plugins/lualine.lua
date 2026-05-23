@@ -2,7 +2,17 @@ return {
 	'nvim-lualine/lualine.nvim',
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
 	config = function()
-		local colors = require("kanagawa").dragon()
+		local kanagawa = require("kanagawa.colors").setup({ theme = "dragon" })
+		local colors = {
+			fg = kanagawa.theme.ui.fg,
+			bg = kanagawa.theme.ui.bg,
+			fg_dark = kanagawa.theme.ui.fg_dim,
+			green = kanagawa.palette.autumnGreen,
+			orange = kanagawa.palette.surimiOrange,
+			red = kanagawa.palette.autumnRed,
+			yellow = kanagawa.palette.roninYellow,
+			cyan = kanagawa.palette.dragonBlue,
+		}
 		local lualine = require('lualine')
 
 		local config = {
@@ -92,9 +102,9 @@ return {
 			sources = { "nvim_diagnostic" },
 			symbols = { error = " ", warn = " ", info = " " },
 			diagnostics_color = {
-				color_error = { fg = colors.red },
-				color_warn = { fg = colors.yellow },
-				color_info = { fg = colors.cyan },
+				error = { fg = colors.red },
+				warn = { fg = colors.yellow },
+				info = { fg = colors.cyan },
 			},
 		})
 
