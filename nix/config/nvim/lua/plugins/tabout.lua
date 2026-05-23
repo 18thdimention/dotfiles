@@ -31,5 +31,4 @@ return	{
 	opt = true,
 	event = 'InsertCharPre',
 	priority = 1000,
-},
-
+}

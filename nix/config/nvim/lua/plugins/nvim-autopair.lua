@@ -15,5 +15,4 @@ return {
 		check_ts = true,
 		enable_check_bracket_line = true,
 	},
-},
-
+}
