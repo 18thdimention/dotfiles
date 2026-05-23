@@ -16,4 +16,9 @@ return {
 			vim.keymap.set("n", "<leader>xh", "<cmd>Gitsigns setqflist<CR>", { buffer = bufnr }) -- use trouble
 		end,
 	},
+	config = function()
+		require('gitsigns').setup({
+			current_line_blame = true,
+		})
+	end
 },

@@ -127,5 +127,7 @@ return {
 		insert_right({
 			"filetype",
 		})
+
+		lualine.setup(config)
 	end,
 }
