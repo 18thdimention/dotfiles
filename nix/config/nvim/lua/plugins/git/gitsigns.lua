@@ -2,7 +2,7 @@
 	"lewis6991/gitsigns.nvim",
 	event = "BufReadPre",
 	opts = {
-		current_line_blame = true,
+		-- current_line_blame = true,
 		trouble = true,
 		preview_config = {},
 		on_attach = function(bufnr)
