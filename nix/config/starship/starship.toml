@@ -1,32 +1,20 @@
 add_newline = true
-continuation_prompt = "[▸▹ ](dimmed white)"
 
 # Show directory and language version above the prompt
 # format = "[$directory$git_branch$git_status]($style)$character"
-format = """
-$directory
-$git_branch
-$git_status
-$git_commit
-$character
-"""
+format = """$directory$git_branch$git_commit $character"""
 
 # Only show time on the right, flush with the edge
-right_format = """
-$time
-"""
+right_format = """$time"""
 
 [fill]
 symbol = ' '
 
 [character]
 format = "$symbol "
-success_symbol = "[→](bold green)"
-error_symbol = "[→](bold red)"
-vimcmd_symbol = "[→](bold green)"
-vimcmd_replace_one_symbol = "◌"
-vimcmd_replace_symbol = "□"
-vimcmd_visual_symbol = "▼"
+success_symbol = "[❯](purple)[❯](cyan)"
+error_symbol = "[❯](yellow)[❯](red)"
+vicmd_symbol = "[❮](purple)[❮](cyan)"
 
 [env_var.VIMSHELL]
 format = "[$env_value]($style)"

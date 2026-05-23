@@ -4,8 +4,8 @@ title = " "
 macos-titlebar-proxy-icon = hidden
 background-opacity = 0.8
 background-blur-radius = 75
-theme = vague
 clipboard-read = allow
+theme = mykanagawa
 
 # for non-rounded window
 # window-decoration = false
