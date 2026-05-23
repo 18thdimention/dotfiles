@@ -28,7 +28,6 @@ return	{
 		"L3MON4D3/LuaSnip",
 		"hrsh7th/nvim-cmp"
 	},
-	opt = true,
 	event = 'InsertCharPre',
 	priority = 1000,
 }
