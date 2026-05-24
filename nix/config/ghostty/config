@@ -16,8 +16,8 @@ theme = Black Metal (Dark Funeral)
 font-family = FiraCode Nerd Font
 font-size = 16
 
-window-padding-x =10
-window-padding-y =10
+window-padding-x = 16
+window-padding-y = 16
 
 adjust-cell-height = 25%
 
