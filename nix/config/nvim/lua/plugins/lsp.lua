@@ -1,14 +1,22 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		"mason-org/mason.nvim",
-		"mason-org/mason-lspconfig.nvim",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
 		"folke/lazydev.nvim",
 	},
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		vim.lsp.config("*", { capabilities = vim.lsp.protocol.make_client_capabilities() })
-		require("mason").setup()
+    -- create default capabilities object for later use by language servers
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+    if ok_cmp and cmp_nvim_lsp and cmp_nvim_lsp.default_capabilities then
+      capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+    end
+    -- expose for other modules to use when setting up lsp servers
+    vim.g.lsp_capabilities = capabilities
+    -- ensure mason is available and configured
+    require("mason").setup()
 		require("mason-lspconfig").setup({ ---@diagnostic disable-line
 			ensure_installed = {
 				"lua_ls",

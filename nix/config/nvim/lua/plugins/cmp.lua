@@ -1,7 +1,15 @@
 return {
-  "saghen/blink.cmp",
+  "saghen/blink-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
-  dependencies = "rafamadriz/friendly-snippets",
+  dependencies = {
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "saadparwaiz1/cmp_luasnip",
+    "L3MON4D3/LuaSnip",
+    "rafamadriz/friendly-snippets",
+  },
   config = function()
     require("blink-cmp").setup({
       keymap = { preset = "enter" },
@@ -55,5 +63,18 @@ return {
         },
       },
     })
+
+    -- set keymaps for nvim-cmp as well (safe-guard if cmp is installed)
+    local ok_cmp, cmp = pcall(require, "cmp")
+    if ok_cmp and cmp then
+      local mapping = cmp.mapping
+      cmp.setup({
+        mapping = {
+          ["<C-j>"] = mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+          ["<C-k>"] = mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+          ["<S-CR>"] = mapping.confirm({ select = true }),
+        },
+      })
+    end
   end,
 }
