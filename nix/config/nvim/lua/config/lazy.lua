@@ -19,6 +19,9 @@ require("lazy").setup({
     { import = "plugins" },
 		{ import = "plugins.themes" },
   },
+	rocks = {
+		hererocks = false,
+	},
 	install = { colorscheme = { "kanagawa" } },
 })
 

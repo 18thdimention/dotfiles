@@ -9,6 +9,11 @@
 	};
 
 	environment.systemPackages = with pkgs; [
+		lua51Packages.luarocks
+		go
+		lua
+		wget
+		fd
 		fastfetch
 		docker
 		home-manager
