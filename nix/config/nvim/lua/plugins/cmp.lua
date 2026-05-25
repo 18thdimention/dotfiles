@@ -1,5 +1,5 @@
 return {
-  "saghen/blink-cmp",
+  "saghen/blink.cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "hrsh7th/nvim-cmp",
@@ -11,7 +11,7 @@ return {
     "rafamadriz/friendly-snippets",
   },
   config = function()
-    require("blink-cmp").setup({
+    require("blink.cmp").setup({
       keymap = { preset = "enter" },
       cmdline = {
         keymap = { preset = "super-tab" },
