@@ -38,11 +38,13 @@ return {
       -- visual tweaks: smaller/truncated labels and transparent popup
       window = {
         completion = cmp.config.window.bordered({
+          -- make popup compact
           winhighlight = "Normal:CmpPmenu,CursorLine:CmpPmenuSel,Search:None",
-          side_padding = 1,
+          side_padding = 0,
         }),
         documentation = cmp.config.window.bordered({
           winhighlight = "Normal:CmpPmenu,CursorLine:CmpPmenuSel,Search:None",
+          max_height = 6,
         }),
       },
       mapping = {
@@ -91,13 +93,20 @@ return {
         { name = "buffer" },
       }),
       experimental = { ghost_text = true },
-      -- limit label width to keep popup compact
+      -- limit label width to keep popup compact and shorten source menu
       formatting = {
         format = function(entry, vim_item)
-          local max_width = 40
+          local max_width = 28
           if vim_item.abbr and #vim_item.abbr > max_width then
             vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 3) .. "..."
           end
+          local source_names = {
+            nvim_lsp = "[LSP]",
+            luasnip = "[SNIP]",
+            buffer = "[BUF]",
+            path = "[PATH]",
+          }
+          vim_item.menu = source_names[entry.source.name] or ""
           return vim_item
         end,
       },
@@ -123,7 +132,8 @@ return {
     pcall(function()
       -- set background to NONE so floating window is transparent
       vim.api.nvim_set_hl(0, "CmpPmenu", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "CmpPmenuSel", { bg = "NONE" })
+      -- keep selection highlighted by linking to PmenuSel (so selection remains visible)
+      vim.api.nvim_set_hl(0, "CmpPmenuSel", { link = "PmenuSel" })
     end)
   end,
 }
