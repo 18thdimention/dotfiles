@@ -14,7 +14,8 @@ return {
       capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
     end
     -- expose for other modules to use when setting up lsp servers
-    vim.g.lsp_capabilities = capabilities
+    local caps_mod = require("config.lsp_capabilities")
+    caps_mod.set(capabilities)
     -- ensure mason is available and configured
     require("mason").setup()
 		require("mason-lspconfig").setup({ ---@diagnostic disable-line
