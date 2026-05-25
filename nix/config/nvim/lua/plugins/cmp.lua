@@ -35,6 +35,16 @@ return {
           end
         end,
       },
+      -- visual tweaks: smaller/truncated labels and transparent popup
+      window = {
+        completion = cmp.config.window.bordered({
+          winhighlight = "Normal:CmpPmenu,CursorLine:CmpPmenuSel,Search:None",
+          side_padding = 1,
+        }),
+        documentation = cmp.config.window.bordered({
+          winhighlight = "Normal:CmpPmenu,CursorLine:CmpPmenuSel,Search:None",
+        }),
+      },
       mapping = {
         ["<C-j>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -50,7 +60,7 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-        ["<S-CR>"] = cmp.mapping(function(fallback)
+        ["<CR>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.confirm({ select = true })
           else
@@ -58,20 +68,15 @@ return {
           end
         end, { "i", "s" }),
         ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-          elseif luasnip and luasnip.expand_or_jumpable() then
+          -- only use Tab for snippet expansion/jump; do not navigate completion menu
+          if luasnip and luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
-          elseif has_words_before() then
-            cmp.complete()
           else
             fallback()
           end
         end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-          elseif luasnip and luasnip.jumpable(-1) then
+          if luasnip and luasnip.jumpable(-1) then
             luasnip.jump(-1)
           else
             fallback()
@@ -86,6 +91,16 @@ return {
         { name = "buffer" },
       }),
       experimental = { ghost_text = true },
+      -- limit label width to keep popup compact
+      formatting = {
+        format = function(entry, vim_item)
+          local max_width = 40
+          if vim_item.abbr and #vim_item.abbr > max_width then
+            vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 3) .. "..."
+          end
+          return vim_item
+        end,
+      },
     })
 
     -- Use buffer source for `/` (if you want search completion)
@@ -104,5 +119,11 @@ return {
 
     -- If LSP capabilities were prepared earlier, ensure clients use them when set up.
     -- Many server setup files will pick up vim.g.lsp_capabilities if they reference it.
+    -- create transparent highlight groups for cmp popup
+    pcall(function()
+      -- set background to NONE so floating window is transparent
+      vim.api.nvim_set_hl(0, "CmpPmenu", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "CmpPmenuSel", { bg = "NONE" })
+    end)
   end,
 }
