@@ -1,5 +1,5 @@
 return {
-  "saghen/blink.cmp",
+  "saghen/blink-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "hrsh7th/nvim-cmp",
@@ -12,13 +12,29 @@ return {
   },
   config = function()
     -- attempt to require the blink plugin under a few possible module names
-    local blink_ok, blink_mod = pcall(require, "blink.cmp")
-    if not blink_ok then blink_ok, blink_mod = pcall(require, "blink-cmp") end
-    if not blink_ok then blink_ok, blink_mod = pcall(require, "blink_cmp") end
-    if not blink_ok or not blink_mod or not blink_mod.setup then
-      vim.notify("blink-cmp plugin not found or failed to load", vim.log.levels.WARN)
+    local tries = { "blink.cmp", "blink-cmp", "blink_cmp", "blink" }
+    local blink_mod
+    local errors = {}
+    for _, name in ipairs(tries) do
+      local ok, res = pcall(require, name)
+      if ok and res then
+        blink_mod = res
+        break
+      end
+      if not ok and type(res) == "string" then
+        table.insert(errors, name .. ": " .. res)
+      end
+    end
+
+    if not blink_mod then
+      vim.notify("blink-cmp plugin not found or failed to load. Attempts:\n" .. table.concat(errors, "\n"), vim.log.levels.WARN)
     else
-      blink_mod.setup({
+      -- blink_mod may expose a submodule 'cmp' or provide setup directly
+      local setup_target = blink_mod.setup or (blink_mod.cmp and blink_mod.cmp.setup)
+      if not setup_target then
+        vim.notify("blink-cmp loaded but no setup() found on module", vim.log.levels.WARN)
+      else
+        setup_target({
       keymap = { preset = "enter" },
       cmdline = {
         keymap = { preset = "super-tab" },
