@@ -11,7 +11,14 @@ return {
     "rafamadriz/friendly-snippets",
   },
   config = function()
-    require("blink.cmp").setup({
+    -- attempt to require the blink plugin under a few possible module names
+    local blink_ok, blink_mod = pcall(require, "blink.cmp")
+    if not blink_ok then blink_ok, blink_mod = pcall(require, "blink-cmp") end
+    if not blink_ok then blink_ok, blink_mod = pcall(require, "blink_cmp") end
+    if not blink_ok or not blink_mod or not blink_mod.setup then
+      vim.notify("blink-cmp plugin not found or failed to load", vim.log.levels.WARN)
+    else
+      blink_mod.setup({
       keymap = { preset = "enter" },
       cmdline = {
         keymap = { preset = "super-tab" },
@@ -62,7 +69,8 @@ return {
           },
         },
       },
-    })
+      })
+    end
 
     -- set keymaps for nvim-cmp as well (safe-guard if cmp is installed)
     local ok_cmp, cmp = pcall(require, "cmp")
@@ -70,9 +78,27 @@ return {
       local mapping = cmp.mapping
       cmp.setup({
         mapping = {
-          ["<C-j>"] = mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-          ["<C-k>"] = mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-          ["<S-CR>"] = mapping.confirm({ select = true }),
+          ["<C-j>"] = mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+          ["<C-k>"] = mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+          ["<S-CR>"] = mapping(function(fallback)
+            if cmp.visible() then
+              cmp.confirm({ select = true })
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
         },
       })
     end
