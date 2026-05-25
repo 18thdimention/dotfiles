@@ -3,16 +3,16 @@ return {
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
 	event = "VeryLazy",
 	config = function()
-		local kanagawa = require("kanagawa.colors").setup({ theme = "dragon" })
+		local zenbones = require("zenbones.colors")
 		local colors = {
-			fg = kanagawa.theme.ui.fg,
-			bg = kanagawa.theme.ui.bg,
-			fg_dark = kanagawa.theme.ui.fg_dim,
-			green = kanagawa.palette.autumnGreen,
-			orange = kanagawa.palette.surimiOrange,
-			red = kanagawa.palette.autumnRed,
-			yellow = kanagawa.palette.roninYellow,
-			cyan = kanagawa.palette.dragonBlue,
+			fg = zenbones.theme.ui.fg,
+			bg = #000000,
+			fg_dark = zenbones.theme.ui.fg_dim,
+			green = zenbones.palette.autumnGreen,
+			orange = zenbones.palette.surimiOrange,
+			red = zenbones.palette.autumnRed,
+			yellow = zenbones.palette.roninYellow,
+			cyan = zenbones.palette.dragonBlue,
 		}
 		local lualine = require('lualine')
 
