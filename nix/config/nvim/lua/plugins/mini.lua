@@ -1,3 +1,5 @@
 return {
 	{ 'nvim-mini/mini.cursorword', version = '*' },
+	{ 'nvim-mini/mini.surround', version = '*' },
+	{ 'nvim-mini/mini.pairs', version = '*' },
 }

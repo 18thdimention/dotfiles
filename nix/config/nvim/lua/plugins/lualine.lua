@@ -3,17 +3,55 @@ return {
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
 	event = "VeryLazy",
 	config = function()
-		local zenbones = require("zenbones.colors")
-		local colors = {
-			fg = zenbones.theme.ui.fg,
-			bg = #000000,
-			fg_dark = zenbones.theme.ui.fg_dim,
-			green = zenbones.palette.autumnGreen,
-			orange = zenbones.palette.surimiOrange,
-			red = zenbones.palette.autumnRed,
-			yellow = zenbones.palette.roninYellow,
-			cyan = zenbones.palette.dragonBlue,
-		}
+        -- Try to load zenbones colors module; provide a sensible fallback
+        local function num_to_hex(n)
+            if not n then return nil end
+            return string.format('#%06x', n)
+        end
+
+        local zenbones
+        do
+            local ok, mod = pcall(require, 'zenbones.colors')
+            if ok and mod then
+                zenbones = mod
+            else
+                local ok2, mod2 = pcall(require, 'zenbones')
+                if ok2 and mod2 then
+                    zenbones = mod2
+                else
+                    -- Fallback: derive some colors from the 'Normal' highlight and use small palette
+                    local hl = vim.api.nvim_get_hl(0, { name = 'Normal' })
+                    local fg_num = hl.foreground or hl.fg
+                    local bg_num = hl.background or hl.bg
+                    local fg = num_to_hex(fg_num) or '#abb2bf'
+                    local fg_dim = '#7f848e'
+                    zenbones = {
+                        theme = { ui = { fg = fg, fg_dim = fg_dim } },
+                        palette = {
+                            autumnGreen = '#98be65',
+                            surimiOrange = '#FF8800',
+                            autumnRed = '#ec5f67',
+                            roninYellow = '#FFCC66',
+                            dragonBlue = '#6fb3d2',
+                        },
+                    }
+                end
+            end
+        end
+        -- Safely read values from zenbones (it may be nil or have different shape)
+        local theme_ui = (zenbones and zenbones.theme and zenbones.theme.ui) or {}
+        local palette = (zenbones and zenbones.palette) or {}
+
+        local colors = {
+            fg = theme_ui.fg or '#abb2bf',
+            bg = "#000000",
+            fg_dark = theme_ui.fg_dim or '#7f848e',
+            green = palette.autumnGreen or '#98be65',
+            orange = palette.surimiOrange or '#FF8800',
+            red = palette.autumnRed or '#ec5f67',
+            yellow = palette.roninYellow or '#FFCC66',
+            cyan = palette.dragonBlue or '#6fb3d2',
+        }
 		local lualine = require('lualine')
 
 		local config = {
