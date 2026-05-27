@@ -9,6 +9,7 @@
 	};
 
 	environment.systemPackages = with pkgs; [
+		rustup
 		lua51Packages.luarocks
 		go
 		lua

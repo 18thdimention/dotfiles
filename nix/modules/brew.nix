@@ -8,6 +8,7 @@
 		brews = [
 			"sdl2"
 			"llvm@15"
+			"pkg-config"
 			"anomalyco/tap/opencode"
 		];
 		casks = [
@@ -23,6 +24,7 @@
 			"discord"
 			"ollama"
 			"warp"
+			"lm-studio"
 		];
 		masApps = {
 			"Microsoft Excel" = 462058435;
