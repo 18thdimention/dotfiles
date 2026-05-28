@@ -25,6 +25,7 @@
 			"ollama"
 			"warp"
 			"lm-studio"
+			"sqlitestudio"
 		];
 		masApps = {
 			"Microsoft Excel" = 462058435;
