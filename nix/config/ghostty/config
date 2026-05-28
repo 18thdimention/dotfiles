@@ -5,7 +5,7 @@ macos-titlebar-proxy-icon = hidden
 background-opacity = 0.8
 background-blur-radius = 75
 clipboard-read = allow
-theme = Black Metal (Dark Funeral)
+theme = vague
 
 # for non-rounded window
 # window-decoration = false

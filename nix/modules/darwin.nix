@@ -9,6 +9,7 @@
 	};
 
 	environment.systemPackages = with pkgs; [
+		sqlite
 		rustup
 		lua51Packages.luarocks
 		go
