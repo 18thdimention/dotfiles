@@ -5,7 +5,7 @@ macos-titlebar-proxy-icon = hidden
 background-opacity = 0.8
 background-blur-radius = 75
 clipboard-read = allow
-theme = vague
+theme = Kanagawa Dragon
 
 # for non-rounded window
 # window-decoration = false

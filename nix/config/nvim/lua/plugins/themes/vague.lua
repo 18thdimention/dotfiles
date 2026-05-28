@@ -34,6 +34,6 @@ return {
 				delta = '#f3be7c',
 			},
 		})
-		vim.cmd.colorscheme('vague')
+		-- vim.cmd.colorscheme('vague')
 	end,
 }
