@@ -26,6 +26,7 @@
 			"warp"
 			"lm-studio"
 			"sqlitestudio"
+			"utm"
 		];
 		masApps = {
 			"Microsoft Excel" = 462058435;
