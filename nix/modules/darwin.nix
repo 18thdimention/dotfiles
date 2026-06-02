@@ -9,6 +9,8 @@
 	};
 
 	environment.systemPackages = with pkgs; [
+		cmake
+		ninja
 		sqlite
 		rustup
 		lua51Packages.luarocks
