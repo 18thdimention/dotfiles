@@ -9,7 +9,6 @@
 	};
 
 	environment.systemPackages = with pkgs; [
-		sdl3
 		cmake
 		ninja
 		sqlite

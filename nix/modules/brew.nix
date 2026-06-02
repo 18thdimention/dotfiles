@@ -7,6 +7,7 @@
 		taps = [];
 		brews = [
 			"sdl2"
+			"sdl3"
 			"llvm@15"
 			"pkg-config"
 			"anomalyco/tap/opencode"
