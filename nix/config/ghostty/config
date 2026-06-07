@@ -2,11 +2,12 @@
 macos-titlebar-style = hidden
 title = " "
 macos-titlebar-proxy-icon = hidden
-background-opacity = 0.8
-background-blur-radius = 75
+# background-opacity = 0.8
+# background-blur-radius = 75
 clipboard-read = allow
-theme = Kanagawa Dragon
+theme = Kanso Zen
 background = #000000
+# background = #12120F
 
 # for non-rounded window
 # window-decoration = false
@@ -14,7 +15,7 @@ background = #000000
 # macos-titlebar-style = native
 
 # Fonts and Text
-font-family = FiraCode Nerd Font
+font-family = .ZedMono
 font-size = 16
 
 window-padding-x = 16
