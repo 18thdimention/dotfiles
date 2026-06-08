@@ -28,6 +28,7 @@
 			"lm-studio"
 			"sqlitestudio"
 			"font-zed-mono"
+			"font-fira-mono-nerd-font"
 		];
 		masApps = {
 			"Microsoft Excel" = 462058435;

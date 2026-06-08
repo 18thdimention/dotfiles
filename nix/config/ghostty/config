@@ -2,7 +2,7 @@
 macos-titlebar-style = hidden
 title = " "
 macos-titlebar-proxy-icon = hidden
-# background-opacity = 0.8
+background-opacity = 0.9
 # background-blur-radius = 75
 clipboard-read = allow
 theme = Gruvbox Dark Hard
@@ -15,9 +15,9 @@ background = #0E1018
 # macos-titlebar-style = native
 
 # Fonts and Text
-font-family = Zed Mono
+font-family = FiraMono Nerd Font
 font-style = Medium
-font-size = 17
+font-size = 15
 
 window-padding-x = 16
 window-padding-y = 16
