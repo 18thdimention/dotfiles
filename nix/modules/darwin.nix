@@ -93,7 +93,7 @@
 		NSGlobalDomain = {
 			AppleInterfaceStyle = "Dark";
 			AppleShowAllExtensions = true;
-
+			"_HIHideMenuBar" = false;
 			ApplePressAndHoldEnabled = false;
 			NSAutomaticSpellingCorrectionEnabled = false;
 			"com.apple.keyboard.fnState" = true;

@@ -31,6 +31,6 @@ return {
 			minimal = false,             -- reduced color palette for a more minimal look
 			-- Your configuration options here
 		})
-		vim.cmd("colorscheme kanso")
+		-- vim.cmd("colorscheme kanso")
 	end,
 }
