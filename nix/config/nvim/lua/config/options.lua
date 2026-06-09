@@ -16,3 +16,4 @@ vim.opt.undofile = true
 vim.opt.number = true
 vim.wo.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
+vim.g.maplocalleader = ","

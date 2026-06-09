@@ -10,7 +10,6 @@ return {
 		{ "nvim-neotest/nvim-nio" },
 	},
 	config = function()
-		vim.g.maplocalleader = ","
 		require("neorg").setup({
 			load = {
 				["core.defaults"] = {},
