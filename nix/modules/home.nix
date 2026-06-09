@@ -77,4 +77,5 @@
   home.file.".config/bat".source = ../config/bat;
 	home.file.".config/starship.toml".source = ../config/starship/starship.toml;
 	home.file.".config/zellij".source = ../config/zellij;
+	home.file.".config/yazi".source = ../config/yazi;
 }
