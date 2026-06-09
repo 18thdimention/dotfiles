@@ -9,6 +9,7 @@
 	};
 
 	environment.systemPackages = with pkgs; [
+		yazi
 		zellij
 		cmake
 		ninja
