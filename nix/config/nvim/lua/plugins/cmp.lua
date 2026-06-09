@@ -53,5 +53,10 @@ return {
 				}),
 			},
 		})
+
+		-- Disable cmp for specific filetypes
+		cmp.setup.filetype("norg", {
+			enabled = false,
+		})
 	end,
 }

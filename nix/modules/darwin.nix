@@ -9,6 +9,7 @@
 	};
 
 	environment.systemPackages = with pkgs; [
+		zellij
 		cmake
 		ninja
 		sqlite

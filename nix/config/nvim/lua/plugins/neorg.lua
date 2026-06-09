@@ -8,13 +8,18 @@ return {
 		{ "pysan3/pathlib.nvim" },
 		{ "nvim-neorg/lua-utils.nvim" },
 		{ "nvim-neotest/nvim-nio" },
-		{ "nvim-neorg/tree-sitter-norg", build = ":TSUpdate norg" },
-		{ "nvim-neorg/tree-sitter-norg_meta", build = ":TSUpdate norg_meta" },
 	},
 	config = function()
+		vim.g.maplocalleader = ","
 		require("neorg").setup({
 			load = {
 				["core.defaults"] = {},
+				["core.keybinds"] = {
+					config = {
+						default_keybinds = true,
+						neorg_leader = ",",
+					},
+				},
 				["core.dirman"] = {
 					config = {
 						workspaces = {
@@ -22,7 +27,11 @@ return {
 						},
 					}
 				},
-				["core.concealer"] = {},
+				["core.concealer"] = {
+					config = {
+						icon_preset = "varied",
+					},
+				},
 			}
 		})
 	end

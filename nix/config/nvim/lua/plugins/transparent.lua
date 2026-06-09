@@ -14,7 +14,10 @@ return {
 			-- table: additional groups that should be cleared
 			extra_groups = {
 				"NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
-				"NvimTreeNormal" -- NvimTree
+				"NvimTreeNormal", -- NvimTree
+				"WinBar", -- dropbar / barbecue background
+				"WinBarNC",
+				"DropBarMenuNormalFloat",
 			},
 			-- table: groups you don't want to clear
 			exclude_groups = {},
