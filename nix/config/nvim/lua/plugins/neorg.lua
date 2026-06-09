@@ -2,23 +2,28 @@ return {
 	"nvim-neorg/neorg",
 	lazy = false,
 	version = "*",
+	dependencies = {
+		{ "vhyrro/luarocks.nvim" },
+		{ "nvim-lua/plenary.nvim" },
+		{ "pysan3/pathlib.nvim" },
+		{ "nvim-neorg/lua-utils.nvim" },
+		{ "nvim-neotest/nvim-nio" },
+		{ "nvim-neorg/tree-sitter-norg", build = ":TSUpdate norg" },
+		{ "nvim-neorg/tree-sitter-norg_meta", build = ":TSUpdate norg_meta" },
+	},
 	config = function()
-		require("neorg").setup {
+		require("neorg").setup({
 			load = {
 				["core.defaults"] = {},
-				["core.concealer"] = {},
 				["core.dirman"] = {
 					config = {
 						workspaces = {
-							notes = "~/Neorg",
+							neorg = "~/neorg",
 						},
-						default_workspace = "Neorg",
-					},
+					}
 				},
-			},
-		}
-
-		vim.wo.foldlevel = 99
-		vim.wo.conceallevel = 2
-	end,
+				["core.concealer"] = {},
+			}
+		})
+	end
 }

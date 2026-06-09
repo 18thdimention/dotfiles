@@ -17,7 +17,7 @@ return {
       highlight = {
         enable = true,
       },
-      indent = { enable = false },
+      indent = { enable = true },
       autotag = {
         enable = true,
       },
@@ -44,7 +44,6 @@ return {
         "vimdoc",
         "c",
         "cpp",
-        "haskell",
         "gdscript",
         "gdshader",
         "godot_resource",

@@ -20,8 +20,9 @@ require("lazy").setup({
 		{ import = "plugins.themes" },
   },
 	rocks = {
-		hererocks = true,
+		enabled = false,
 	},
+	lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
 	install = { colorscheme = { "kanagawa" } },
 })
 

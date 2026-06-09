@@ -13,6 +13,7 @@
 			"anomalyco/tap/opencode"
 			"luarocks"
 			"lua"
+			"python"
 		];
 		casks = [
 			"helium-browser"

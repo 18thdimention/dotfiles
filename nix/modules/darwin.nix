@@ -24,7 +24,7 @@
 		gcc
 		neovim
 		lazygit
-
+		lua5_1
 		lua
 		nodejs
 		rustc
