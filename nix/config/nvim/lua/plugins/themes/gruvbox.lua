@@ -3,6 +3,8 @@ return {
 	priority = 1000,
 	config = function()
 		require("gruvbox").setup({
+			terminal_colors = true,
+			transparent_mode = true,
 			contrast = "hard",
 			palette_overrides = {dark0_hard = "#0E1018"},
 			overrides = {
