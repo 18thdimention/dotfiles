@@ -16,6 +16,7 @@
 		lua51Packages.luarocks
 		go
 		lua
+		lua5_5
 		wget
 		fd
 		fastfetch
