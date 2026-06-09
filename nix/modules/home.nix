@@ -76,5 +76,5 @@
   home.file.".config/btop".source = ../config/btop;
   home.file.".config/bat".source = ../config/bat;
 	home.file.".config/starship.toml".source = ../config/starship/starship.toml;
-	home.file.".config/zellij".source = ../config/starship/zellij;
+	home.file.".config/zellij".source = ../config/zellij;
 }
