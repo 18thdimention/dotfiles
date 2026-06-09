@@ -21,6 +21,7 @@ require("lazy").setup({
   },
 	rocks = {
 		hererocks = false,
+		luarocks = true,
 	},
 	install = { colorscheme = { "kanagawa" } },
 })

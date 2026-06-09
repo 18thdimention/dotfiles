@@ -12,6 +12,7 @@
 			"pkg-config"
 			"anomalyco/tap/opencode"
 			"luarocks"
+			"lua"
 		];
 		casks = [
 			"helium-browser"
