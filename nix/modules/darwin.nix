@@ -9,6 +9,7 @@
 	};
 
 	environment.systemPackages = with pkgs; [
+	imagemagick
 		yazi
 		zellij
 		cmake

@@ -31,6 +31,23 @@ return {
 						icon_preset = "varied",
 					},
 				},
+				["core.pivot"] = {},
+				["core.integrations.treesitter"] = {},
+				["core.highlights"] = {},
+				["core.autocommands"] = {},
+				["core.qol.todo_items"] = {
+					config = {
+						create_todo_items = true,
+					},
+				},
+				["core.ui"] = {},
+				["core.ui.calendar"] = {},
+				["core.latex.renderer"] = {
+					config = {
+						conceal = true,
+						render_on_enter = false,
+					}
+				},
 			}
 		})
 	end

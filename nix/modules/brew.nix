@@ -16,8 +16,8 @@
 			"python"
 		];
 		casks = [
-			"helium-browser"
 			"zed"
+			"mactex"
 			"nikitabobko/tap/aerospace"
 			"firefox"
 			"obsidian"
@@ -28,7 +28,6 @@
 			"discord"
 			"ollama"
 			"warp"
-			"lm-studio"
 			"sqlitestudio"
 			"font-zed-mono"
 			"font-fira-mono-nerd-font"
