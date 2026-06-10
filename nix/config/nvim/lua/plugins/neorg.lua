@@ -3,11 +3,13 @@ return {
 	lazy = false,
 	version = "*",
 	dependencies = {
+		{ "nvim-treesitter/nvim-treesitter" },
 		{ "vhyrro/luarocks.nvim" },
 		{ "nvim-lua/plenary.nvim" },
 		{ "pysan3/pathlib.nvim" },
 		{ "nvim-neorg/lua-utils.nvim" },
 		{ "nvim-neotest/nvim-nio" },
+		{ "3rd/image.nvim" },
 	},
 	config = function()
 		require("neorg").setup({
@@ -28,7 +30,7 @@ return {
 				},
 				["core.concealer"] = {
 					config = {
-						icon_preset = "varied",
+						icon_preset = "diamond",
 					},
 				},
 				["core.pivot"] = {},
@@ -48,7 +50,12 @@ return {
 						render_on_enter = false,
 					}
 				},
+				["core.promo"] = {},
+				["core.esupports.metagen"] = {},
+				["core.syntax"] = {},
+				["core.summary"] = {},
 			}
 		})
+		vim.keymap.set("n", "<localleader>m", "<cmd>Neorg inject-metadata<CR>", { desc = "Inject metadata" })
 	end
 }

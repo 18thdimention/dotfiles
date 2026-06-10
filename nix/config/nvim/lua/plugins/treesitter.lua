@@ -1,7 +1,7 @@
 return {
  "nvim-treesitter/nvim-treesitter",
   branch = "main",
-  event = { "BufReadPre", "BufNewFile" },
+  lazy = false,
   build = ":TSUpdate",
   dependencies = {
     "windwp/nvim-ts-autotag",
@@ -14,6 +14,26 @@ return {
 
     -- configure treesitter
     treesitter.setup({ -- enable syntax highlighting
+      local_parsers = {
+        norg = {
+          source = {
+            type = "self_contained",
+            url = "https://github.com/nvim-neorg/tree-sitter-norg",
+            semver = false,
+            queries_path = "queries",
+          },
+          filetypes = { "norg" },
+        },
+        norg_meta = {
+          source = {
+            type = "self_contained",
+            url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
+            semver = false,
+            queries_path = "queries",
+          },
+          filetypes = { "norg_meta" },
+        },
+      },
       highlight = {
         enable = true,
       },
@@ -48,6 +68,8 @@ return {
         "gdshader",
         "godot_resource",
 				"rust",
+				"norg",
+				"norg_meta",
       },
       incremental_selection = {
         enable = true,
