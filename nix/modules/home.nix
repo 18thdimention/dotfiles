@@ -36,6 +36,8 @@
     shellAliases = {
       switch = "sudo darwin-rebuild switch --flake ~/dotfiles/nix";
       ll = "ls -la";
+			ga = "git add .";
+			ta = "tmux attach";
     };
 
     plugins = [
@@ -58,7 +60,7 @@
 
 		autosuggestion.enable = true;
     initContent = ''
-			bindkey '^[[13;2u' autosuggest-accept
+			export EDITOR="nvim"
       if [[ -f ~/.config/zsh/.zshrc ]]; then
         source ~/.config/zsh/.zshrc
       fi
