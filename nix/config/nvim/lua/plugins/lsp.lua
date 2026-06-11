@@ -24,6 +24,7 @@ return {
 				"rust_analyzer",
 				"clangd",
 				"eslint",
+				"nil_ls",
 			},
 		})
 		require("lazydev").setup({ ---@diagnostic disable-line

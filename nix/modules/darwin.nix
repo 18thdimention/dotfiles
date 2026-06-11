@@ -9,7 +9,8 @@
 	};
 
 	environment.systemPackages = with pkgs; [
-	imagemagick
+		texliveMedium
+		imagemagick
 		yazi
 		zellij
 		cmake
@@ -50,6 +51,7 @@
 		curl
 		mas
 		ollama
+		texliveFull
 	];
 
 # Necessary for using flakes on this system.
