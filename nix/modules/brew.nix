@@ -15,6 +15,7 @@
 			"lua"
 			"python"
 		];
+
 		casks = [
 			"zed"
 			"mactex"
@@ -31,7 +32,9 @@
 			"sqlitestudio"
 			"font-zed-mono"
 			"font-fira-mono-nerd-font"
+			"shottr"
 		];
+
 		masApps = {
 			"Microsoft Excel" = 462058435;
 			"Microsoft Word" = 462054704;
