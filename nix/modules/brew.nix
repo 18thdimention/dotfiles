@@ -40,6 +40,7 @@
 			"Microsoft Word" = 462054704;
 			"Microsoft Outlook" = 985367838;
 			"NordVPN: VPN Fast & Secure" = 905953485;
+			"Kakaotalk" = 869223134;
 		};
 	};
 }
