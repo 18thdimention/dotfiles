@@ -7,7 +7,9 @@ return {
 		-- refer to the configuration section below
 	},
 
-	config = function()
+	config = function(_, opts)
+		require("todo-comments").setup(opts)
+
 		vim.keymap.set("n", "]t", function()
 			require("todo-comments").jump_next()
 		end, { desc = "Next todo comment" })
