@@ -11,13 +11,13 @@
 			"sdl3_ttf"
 			"llvm@15"
 			"pkg-config"
-			"anomalyco/tap/opencode"
 			"luarocks"
 			"lua"
 			"python"
 		];
 
 		casks = [
+			"anki"
 			"zed"
 			"mactex"
 			"nikitabobko/tap/aerospace"
@@ -27,6 +27,7 @@
 			"raycast"
 			"zotero"
 			"tailscale"	
+      "logseq"
 			"discord"
 			"ollama"
 			"warp"
@@ -44,4 +45,8 @@
 			"Kakaotalk" = 869223134;
 		};
 	};
+
+	system.activationScripts.homebrewTrust.text = ''
+    /opt/homebrew/bin/brew trust --cask nikitabobko/tap/aerospace || true
+  '';
 }

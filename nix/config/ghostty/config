@@ -5,8 +5,8 @@ macos-titlebar-proxy-icon = hidden
 background-opacity = 0.9
 # background-blur-radius = 75
 clipboard-read = allow
-theme = Gruvbox Dark Hard
-background = #0E1018
+theme = Kanagawa Dragon
+# background = #0E1018
 # background = #12120F
 
 # for non-rounded window

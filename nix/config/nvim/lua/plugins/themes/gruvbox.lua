@@ -85,6 +85,6 @@ return {
 				["@neorg.markup.inline_macro"] = {link = "GruvboxGreen"}
 			}
 		})
-		vim.cmd.colorscheme("gruvbox")
+		-- vim.cmd.colorscheme("gruvbox")
 	end
 }
