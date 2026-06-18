@@ -8,6 +8,7 @@
 		brews = [
 			"sdl2"
 			"sdl3"
+			"sdl3_ttf"
 			"llvm@15"
 			"pkg-config"
 			"anomalyco/tap/opencode"
