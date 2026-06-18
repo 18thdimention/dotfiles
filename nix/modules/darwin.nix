@@ -34,6 +34,8 @@
 		rustc
 		cargo
 
+		python3
+		python311
 		btop
 		starship
 
