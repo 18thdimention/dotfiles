@@ -17,6 +17,7 @@
 		];
 
 		casks = [
+			"claude-code"
 			"zed"
 			"mactex"
 			"nikitabobko/tap/aerospace"
