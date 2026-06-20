@@ -9,6 +9,7 @@
 	};
 
 	environment.systemPackages = with pkgs; [
+		uv
 		texliveMedium
 		imagemagick
 		yazi
@@ -35,7 +36,7 @@
 		cargo
 
 		python3
-		python311
+		python313
 		btop
 		starship
 

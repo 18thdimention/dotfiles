@@ -17,7 +17,6 @@
 		];
 
 		casks = [
-			"anki"
 			"zed"
 			"mactex"
 			"nikitabobko/tap/aerospace"
@@ -43,6 +42,7 @@
 			"Microsoft Outlook" = 985367838;
 			"NordVPN: VPN Fast & Secure" = 905953485;
 			"Kakaotalk" = 869223134;
+			"Fantastical - Calendar" = 975937182;
 		};
 	};
 
