@@ -5,8 +5,8 @@ macos-titlebar-proxy-icon = hidden
 background-opacity = 0.9
 # background-blur-radius = 75
 clipboard-read = allow
-theme = Flexoki Dark
-background = #191D24
+theme = Onenord
+background = #151718
 # background = #12120F
 
 # for non-rounded window

@@ -15,6 +15,7 @@
 			"lua"
 			"python"
 			"typst"
+			"zoxide"
 		];
 
 		casks = [

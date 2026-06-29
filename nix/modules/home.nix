@@ -38,6 +38,7 @@
       ll = "ls -la";
 			ga = "git add .";
 			ta = "tmux attach";
+			z = "zoxide";
     };
 
     plugins = [
