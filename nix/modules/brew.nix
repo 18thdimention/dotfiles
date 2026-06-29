@@ -14,6 +14,7 @@
 			"luarocks"
 			"lua"
 			"python"
+			"typst"
 		];
 
 		casks = [
