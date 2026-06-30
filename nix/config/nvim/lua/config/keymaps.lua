@@ -17,7 +17,7 @@ vim.keymap.set("n", "<C-e>", function()
 end, { desc = "Harpoon: toggle quick menu" })
 
 -- lazygit
-vim.keymap.set("n", "<leader>lg", ":LazyGit<cr>", desc = "LazyGit")
+vim.keymap.set("n", "<leader>lg", ":LazyGit<cr>", { desc = "LazyGit" })
 
 -- telescope
 local builtin = require('telescope.builtin')
