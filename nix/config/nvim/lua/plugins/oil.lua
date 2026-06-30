@@ -1,19 +1,27 @@
-require("oil").setup({
-	default_file_explorer = true,
-	columns = {
-		"icon",
-		-- "permissions",
-		"size",
-		-- "mtime",
-	},
-	use_default_keymaps = true,
-	view_options = {
-		show_hidden = true,
-		sort = {
-			{ "type", "asc" },
-			{ "name", "asc" },
-		},
-	}
-})
+	return {
+		'stevearc/oil.nvim',
+		---@module 'oil'
+		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+		lazy = false,
+		config = function()
+			require("oil").setup({
+				default_file_explorer = true,
+				columns = {
+					"icon",
+					-- "permissions",
+					"size",
+					-- "mtime",
+				},
+				use_default_keymaps = true,
+				view_options = {
+					show_hidden = true,
+					sort = {
+						{ "type", "asc" },
+						{ "name", "asc" },
+					},
+				}
+			})
 
-vim.keymap.set({ "n" }, "<leader>e", "<cmd>Oil<CR>")
+			vim.keymap.set({ "n" }, "<leader>e", "<cmd>Oil<CR>")
+		end,
+	},
