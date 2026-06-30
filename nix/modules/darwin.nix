@@ -50,6 +50,9 @@
 		zoxide
 
 		tmux
+		zathura
+		zathura-pdf-mupdf
+		zathura-pdf-poppler
 
 		curl
 		mas

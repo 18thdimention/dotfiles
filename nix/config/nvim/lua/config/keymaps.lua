@@ -1,5 +1,5 @@
 vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set('n', '<leader>nh', ':nohlsearch<CR>')
+vim.keymap.set("n", "<leader>nh", ":nohlsearch<CR>")
 
 -- undotree
 vim.keymap.set("n", "<leader>u", ":lua require('undotree').toggle()<cr>")
@@ -20,11 +20,11 @@ end, { desc = "Harpoon: toggle quick menu" })
 vim.keymap.set("n", "<leader>lg", ":LazyGit<cr>", { desc = "LazyGit" })
 
 -- telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 
 -- todo telescope
 vim.keymap.set("n", "]t", function()
@@ -37,3 +37,6 @@ end, { desc = "Previous todo comment" })
 
 vim.keymap.set("n", "<leader>ft", ":TodoTelescope<CR>", { desc = "Todo Telescope" })
 
+-- lsp
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>tx", "<cmd>Telescope diagnostics<cr>")
