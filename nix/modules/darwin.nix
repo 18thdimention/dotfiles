@@ -8,7 +8,16 @@
 		home = "/Users/doyeon";
 	};
 
-	environment.systemPackages = with pkgs; [
+	environment.systemPackages = with pkgs;
+	let
+		noAppstream = pkg: pkg.overrideAttrs (old: {
+			mesonFlags = (old.mesonFlags or []) ++ [ "-Dtests=disabled" ];
+			nativeBuildInputs = lib.filter (drv:
+				let p = drv.pname or "";
+				in p != "appstream" && p != "appstream-glib"
+			) old.nativeBuildInputs;
+		});
+	in [
 		uv
 		texliveMedium
 		imagemagick
@@ -50,9 +59,9 @@
 		zoxide
 
 		tmux
-		zathura
-		zathura-pdf-mupdf
-		zathura-pdf-poppler
+		zathuraPkgs.zathura_core
+		(noAppstream zathuraPkgs.zathura_pdf_mupdf)
+		(noAppstream zathuraPkgs.zathura_pdf_poppler)
 
 		curl
 		mas
