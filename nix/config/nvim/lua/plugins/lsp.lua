@@ -1,127 +1,112 @@
 return {
-  {
-    "neovim/nvim-lspconfig",
+	{
+		"neovim/nvim-lspconfig",
 
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-      "saghen/blink.cmp",
-    },
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+			"saghen/blink.cmp",
+		},
 
-    config = function()
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      local has_blink, blink = pcall(require, "blink.cmp")
-      if has_blink and type(blink.get_lsp_capabilities) == "function" then
-        capabilities = blink.get_lsp_capabilities(capabilities)
-      end
+		config = function()
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			local has_blink, blink = pcall(require, "blink.cmp")
+			if has_blink and type(blink.get_lsp_capabilities) == "function" then
+				capabilities = blink.get_lsp_capabilities(capabilities)
+			end
 
+			local servers = {
+				clangd = {},
 
-      local servers = {
-        clangd = {},
+				pyright = {},
 
-        pyright = {},
+				gopls = {},
 
-        gopls = {},
+				rust_analyzer = {},
 
-        rust_analyzer = {},
+				tinymist = {},
 
-        tinymist = {},
+				marksman = {},
 
-        ts_ls = {
-          filetypes = {
-            "javascript",
-            "javascriptreact",
-            "typescript",
-            "typescriptreact",
-          },
-        },
+				ts_ls = {
+					filetypes = {
+						"javascript",
+						"javascriptreact",
+						"typescript",
+						"typescriptreact",
+					},
+				},
 
-        lua_ls = {
-          settings = {
-            Lua = {
-              diagnostics = {
-                globals = {
-                  "vim",
-                },
-              },
-            },
-          },
-        },
-      }
+				lua_ls = {
+					settings = {
+						Lua = {
+							diagnostics = {
+								globals = {
+									"vim",
+								},
+							},
+						},
+					},
+				},
+			}
 
+			for server, config in pairs(servers) do
+				config.capabilities = capabilities
 
-      for server, config in pairs(servers) do
-        config.capabilities = capabilities
+				vim.lsp.config(server, config)
+				vim.lsp.enable(server)
+			end
 
-        vim.lsp.config(server, config)
-        vim.lsp.enable(server)
-      end
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function(args)
+					local opts = {
+						buffer = args.buf,
+					}
 
+					vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 
-      vim.api.nvim_create_autocmd("LspAttach", {
-        callback = function(args)
+					vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 
-          local opts = {
-            buffer = args.buf,
-          }
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
-          vim.keymap.set(
-            "n",
-            "gd",
-            vim.lsp.buf.definition,
-            opts
-          )
+					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-          vim.keymap.set(
-            "n",
-            "gr",
-            vim.lsp.buf.references,
-            opts
-          )
+					vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+				end,
+			})
 
-          vim.keymap.set(
-            "n",
-            "K",
-            vim.lsp.buf.hover,
-            opts
-          )
+			vim.diagnostic.config({
+				virtual_text = true,
+				signs = true,
+				underline = true,
+			})
 
-          vim.keymap.set(
-            "n",
-            "<leader>rn",
-            vim.lsp.buf.rename,
-            opts
-          )
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				callback = function(args)
+					vim.lsp.buf.format({
+						bufnr = args.buf,
+						timeout_ms = 2000,
+					})
+				end,
+			})
 
-          vim.keymap.set(
-            "n",
-            "<leader>ca",
-            vim.lsp.buf.code_action,
-            opts
-          )
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "markdown",
+				callback = function()
+					vim.opt_local.wrap = true
+					vim.opt_local.spell = true
+				end,
+			})
 
-        end,
-      })
-
-
-      vim.diagnostic.config({
-        virtual_text = true,
-        signs = true,
-        underline = true,
-      })
-
-
-      vim.api.nvim_create_autocmd(
-        "BufWritePre",
-        {
-          callback = function(args)
-            vim.lsp.buf.format({
-              bufnr = args.buf,
-              timeout_ms = 2000,
-            })
-          end,
-        }
-      )
-
-    end,
-  },
+			vim.diagnostic.config({
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = "",
+						[vim.diagnostic.severity.WARN] = "",
+						[vim.diagnostic.severity.INFO] = "",
+						[vim.diagnostic.severity.HINT] = "󰌵",
+					},
+				},
+			})
+		end,
+	},
 }
